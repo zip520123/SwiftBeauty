@@ -50,6 +50,15 @@ final class JKForumJkfGirlFetcher: JKForumFetcher, SourceFetchable {
     }
 }
 
+final class JKForumCosplayFetcher: JKForumFetcher, SourceFetchable {
+    static var sourceName: String {
+        return "JKF - cosplay"
+    }
+    
+    func fetchPosts(at page: UInt, completionHandler: @escaping (FetchResult<[Post]>) -> Void) {
+        self.fetchPosts(with: "640", at: page, completionHandler: completionHandler)
+    }
+}
 class JKForumFetcher {
 
     // MARK: - Public Methods

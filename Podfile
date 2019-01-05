@@ -8,4 +8,5 @@ target 'SwiftBeauty' do
   pod 'Kingfisher'
   pod 'EEZoomableImageView'
   pod 'SwiftLint', '~> 0.27.0'
+  pod 'CHTCollectionViewWaterfallLayout'
 end

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CHTCollectionViewWaterfallLayout
 final class PhotosViewController: UIViewController {
     // MARK: - Public Properties
     var viewModel: PhotosViewModel!
@@ -29,8 +29,27 @@ final class PhotosViewController: UIViewController {
                 print("error: \(error)")
             }
         }
+        setupCollectionView()
     }
 
+    // MARK: - CollectionView UI Setup
+    func setupCollectionView(){
+        
+        // Create a waterfall layout
+        let layout = CHTCollectionViewWaterfallLayout()
+        
+        // Change individual layout attributes for the spacing between cells
+        layout.minimumColumnSpacing = 1.0
+        layout.minimumInteritemSpacing = 1.0
+        
+        // Collection view attributes
+        self.collectionView.autoresizingMask = [UIView.AutoresizingMask.flexibleHeight, UIView.AutoresizingMask.flexibleWidth]
+        self.collectionView.alwaysBounceVertical = true
+        
+        // Add the waterfall layout to your collection view
+        self.collectionView.collectionViewLayout = layout
+    }
+    
     func scrollToData(at index: Int, animated: Bool) {
         guard index < data.count else { return }
         let indexPath = IndexPath(item: index, section: 0)
@@ -61,5 +80,10 @@ extension PhotosViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let cell = cell as! PhotoCell
         cell.setImage(with: data[indexPath.item])
+    }
+}
+extension PhotosViewController: CHTCollectionViewDelegateWaterfallLayout {
+    func collectionView(_ collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, sizeForItemAt indexPath: IndexPath!) -> CGSize {
+        return CGSize(width: 200, height: 300)
     }
 }

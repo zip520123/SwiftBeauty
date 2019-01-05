@@ -14,7 +14,7 @@ open class EEZoomableImageView: UIImageView {
     
     // Public Configurables
     
-    var zoomDelegate: ZoomingDelegate? {
+    public var zoomDelegate: ZoomingDelegate? {
         get {
             return pinchZoomHandler.delegate
         } set {
@@ -23,7 +23,7 @@ open class EEZoomableImageView: UIImageView {
     }
     
     // Minimum Scale of ImageView
-    var minZoomScale: CGFloat {
+    public var minZoomScale: CGFloat {
         get {
             return pinchZoomHandler.minZoomScale
         } set {
@@ -32,7 +32,7 @@ open class EEZoomableImageView: UIImageView {
     }
     
     // Maximum Scale of ImageView
-    var maxZoomScale: CGFloat {
+    public var maxZoomScale: CGFloat {
         get {
             return pinchZoomHandler.maxZoomScale
         } set {
@@ -41,7 +41,7 @@ open class EEZoomableImageView: UIImageView {
     }
     
     // Duration of finish animation
-    var resetAnimationDuration: Double {
+    public var resetAnimationDuration: Double {
         get {
             return pinchZoomHandler.resetAnimationDuration
         } set {
@@ -50,7 +50,7 @@ open class EEZoomableImageView: UIImageView {
     }
     
     // True when pinching active
-    var isZoomingActive: Bool {
+    public var isZoomingActive: Bool {
         get {
             return pinchZoomHandler.isZoomingActive
         } set { }
@@ -206,8 +206,7 @@ fileprivate class PinchZoomHandler {
             break
         }
     }
-    
-    private func resetZoom() {
+    @objc private func resetImageView(){
         UIView.animate(withDuration: resetAnimationDuration, animations: {
             self.zoomImageView.frame = self.initialRect
         }) { _ in
@@ -218,5 +217,22 @@ fileprivate class PinchZoomHandler {
             self.isZoomingActive = false
             self.delegate?.pinchZoomHandlerEndPinching()
         }
+    }
+    private func resetZoom() {
+        if zoomImageView.frame < initialRect {
+            resetImageView()
+        }else{
+            zoomImageView.isUserInteractionEnabled = true
+            let tap = UITapGestureRecognizer(target: self, action: #selector(resetImageView))
+            zoomImageView.addGestureRecognizer(tap)
+        }
+    }
+}
+fileprivate extension CGRect {
+    static func <(left: CGRect , right:CGRect) -> Bool {
+        return left.width < right.width && left.height < right.height
+    }
+    static func >(left: CGRect , right:CGRect) -> Bool {
+        return left.width > right.width && left.height > right.height
     }
 }

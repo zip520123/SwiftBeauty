@@ -21,7 +21,8 @@ final class SourcesViewController: UIViewController {
         JKForumWesternFetcher.self,
         JKForumAsiaFetcher.self,
         JKForumAmateurFetcher.self,
-        JKForumJkfGirlFetcher.self
+        JKForumJkfGirlFetcher.self,
+        JKForumCosplayFetcher.self
     ]
 
     override func viewDidLoad() {

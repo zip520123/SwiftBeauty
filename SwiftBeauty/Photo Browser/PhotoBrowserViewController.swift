@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import EEZoomableImageView
 protocol PhotoBrowserViewControllerDelegate: AnyObject {
     func photoBrowserViewController(_ viewController: PhotoBrowserViewController, closeAt index: Int)
 }
@@ -57,7 +57,7 @@ final class PhotoBrowserViewController: UIViewController {
     @IBAction private func close(_ sender: Any) {
         delegate?.photoBrowserViewController(self, closeAt: currentIndex)
     }
-
+	
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         let cell = collectionView.cellForItem(at: IndexPath(item: currentIndex, section: 0)) as! PhotoCell
@@ -82,7 +82,9 @@ extension PhotoBrowserViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
+        let zomableView = cell.imageView as! EEZoomableImageView
+        zomableView.minZoomScale = 0.5
         return cell
     }
 }
