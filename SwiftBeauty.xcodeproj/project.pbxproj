@@ -32,6 +32,7 @@
 		52FF673D2112132000C6B800 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52FF673C2112132000C6B800 /* Assets.xcassets */; };
 		52FF67402112132000C6B800 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52FF673E2112132000C6B800 /* LaunchScreen.storyboard */; };
 		69F855DC644F3BFCB310038F /* Pods_SwiftBeauty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A815274DA33C940039D13FB7 /* Pods_SwiftBeauty.framework */; };
+		EFE45EF921E313BF00C87082 /* ZoomablePhotoBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE45EF821E313BF00C87082 /* ZoomablePhotoBrowser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		52FF67412112132100C6B800 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75ABDFBC04CAD7AC341DEAFB /* Pods-SwiftBeauty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBeauty.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftBeauty/Pods-SwiftBeauty.release.xcconfig"; sourceTree = "<group>"; };
 		A815274DA33C940039D13FB7 /* Pods_SwiftBeauty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBeauty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFE45EF821E313BF00C87082 /* ZoomablePhotoBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomablePhotoBrowser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 			children = (
 				5210C6732121EFE200B57885 /* PhotoBrowserViewController.storyboard */,
 				5282DF852121EBBC00931E17 /* PhotoBrowserViewController.swift */,
+				EFE45EF821E313BF00C87082 /* ZoomablePhotoBrowser.swift */,
 			);
 			path = "Photo Browser";
 			sourceTree = "<group>";
@@ -214,7 +217,6 @@
 				52FF67302112131F00C6B800 /* Resources */,
 				7150ED85D3D62BFF50E3D9A3 /* [CP] Embed Pods Frameworks */,
 				52047A99212EFFBE000F13CB /* Run SwiftLint */,
-				D611053562480B5085191DDA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -298,16 +300,22 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftBeauty/Pods-SwiftBeauty-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
 				"${BUILT_PRODUCTS_DIR}/EEZoomableImageView/EEZoomableImageView.framework",
+				"${BUILT_PRODUCTS_DIR}/Imaginary/Imaginary.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Lightbox/Lightbox.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHTCollectionViewWaterfallLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EEZoomableImageView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Imaginary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lightbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,21 +339,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D611053562480B5085191DDA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftBeauty/Pods-SwiftBeauty-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -373,6 +366,7 @@
 				526130172119FE74009B2023 /* SourceFetchable.swift in Sources */,
 				5210C679212483F300B57885 /* SourcesViewController.swift in Sources */,
 				5261301A2119FF30009B2023 /* TimLiaoFetcher.swift in Sources */,
+				EFE45EF921E313BF00C87082 /* ZoomablePhotoBrowser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,10 +512,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N2M8C53W8L;
+				DEVELOPMENT_TEAM = KCLCJ9X7RB;
 				INFOPLIST_FILE = "$(SRCROOT)/SwiftBeauty/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nelson.SwiftBeauty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -535,10 +532,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N2M8C53W8L;
+				DEVELOPMENT_TEAM = KCLCJ9X7RB;
 				INFOPLIST_FILE = "$(SRCROOT)/SwiftBeauty/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nelson.SwiftBeauty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

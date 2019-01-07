@@ -7,8 +7,8 @@
 //
 
 import UIKit
-
-final class RootCoordinator: CoordinatorProtocol {
+import Lightbox
+final class RootCoordinator: NSObject, CoordinatorProtocol {
     private var navigation: UINavigationController
     private var source: SourceFetchable.Type = TimLiaoFetcher.self
 
@@ -68,15 +68,16 @@ extension RootCoordinator: PhotosViewModelDelegate {
         viewModel.delegate = self
         return viewController
     }
-
     func viewModel(_ viewModel: PhotosViewModel, didSelect index: Int, for data: [URL]) {
-        let vc = createPhotoBrowserViewController()
-        navigation.present(vc, animated: true) {
-            vc.load(data, scrollTo: index)
-        }
+//        let vc = createPhotoBrowserViewController()
+//        navigation.present(vc, animated: true) {
+//            vc.load(data, scrollTo: index)
+//        }
+        let controller = ZoomablePhotoBrowser(images: data, startIndex: index)
+        controller.dismissalDelegate = self
+        navigation.present(controller, animated: true, completion: nil)
     }
 }
-
 // MARK: - Photo Browser Related Methods
 extension RootCoordinator: PhotoBrowserViewControllerDelegate {
     private func createPhotoBrowserViewController() -> PhotoBrowserViewController {
@@ -93,3 +94,11 @@ extension RootCoordinator: PhotoBrowserViewControllerDelegate {
         navigation.dismiss(animated: true, completion: nil)
     }
 }
+// MARK: - LightboxController Delegate
+extension RootCoordinator: LightboxControllerDismissalDelegate {
+    func lightboxControllerWillDismiss(_ controller: LightboxController) {
+        
+    }
+    
+}
+

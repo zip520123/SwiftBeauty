@@ -9,9 +9,9 @@
 import UIKit
 import CHTCollectionViewWaterfallLayout
 final class PhotosViewController: UIViewController {
+    
     // MARK: - Public Properties
     var viewModel: PhotosViewModel!
-
     // MARK: - Private Properties
     @IBOutlet private weak var collectionView: UICollectionView!
     private var data = [URL]()
@@ -31,25 +31,19 @@ final class PhotosViewController: UIViewController {
         }
         setupCollectionView()
     }
-
     // MARK: - CollectionView UI Setup
-    func setupCollectionView(){
-        
+    func setupCollectionView() {
         // Create a waterfall layout
         let layout = CHTCollectionViewWaterfallLayout()
-        
         // Change individual layout attributes for the spacing between cells
         layout.minimumColumnSpacing = 1.0
         layout.minimumInteritemSpacing = 1.0
-        
         // Collection view attributes
         self.collectionView.autoresizingMask = [UIView.AutoresizingMask.flexibleHeight, UIView.AutoresizingMask.flexibleWidth]
         self.collectionView.alwaysBounceVertical = true
-        
         // Add the waterfall layout to your collection view
         self.collectionView.collectionViewLayout = layout
     }
-    
     func scrollToData(at index: Int, animated: Bool) {
         guard index < data.count else { return }
         let indexPath = IndexPath(item: index, section: 0)

@@ -57,7 +57,6 @@ final class PhotoBrowserViewController: UIViewController {
     @IBAction private func close(_ sender: Any) {
         delegate?.photoBrowserViewController(self, closeAt: currentIndex)
     }
-	
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         let cell = collectionView.cellForItem(at: IndexPath(item: currentIndex, section: 0)) as! PhotoCell
