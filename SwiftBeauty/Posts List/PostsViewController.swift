@@ -40,6 +40,10 @@ extension PostsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
+        cell.alpha = 0
+        UIView.animate(withDuration: 0.2) {
+            cell.alpha = 1
+        }
         return cell
     }
 }
@@ -49,7 +53,6 @@ extension PostsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let cell = cell as! PostCell
         cell.setPost(data[indexPath.row])
-
         guard indexPath.row == data.count - 1, viewModel.hasMoreData else {
             return
         }
@@ -57,7 +60,6 @@ extension PostsViewController: UITableViewDelegate {
             self.handleResult(result)
         }
     }
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         viewModel.show(data[indexPath.row])

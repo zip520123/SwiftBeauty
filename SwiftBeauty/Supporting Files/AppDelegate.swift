@@ -15,8 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let navigation = CustomNavigationController()
-//        navigation.navigationBar.prefersLargeTitles = true
-        
+        if #available(iOS 11.0, *) {
+            navigation.navigationBar.prefersLargeTitles = true
+        } else {
+        }
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.rootViewController = navigation
         coordinator = RootCoordinator(navigationController: navigation)
@@ -25,4 +27,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
-
