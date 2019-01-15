@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,27 +29,25 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRh-wa-KiR">
-                                                    <rect key="frame" x="15" y="11" width="345" height="40"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="eNy-6i-Dhf"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <nil key="textColor"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NDs-7t-gUj">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRh-wa-KiR">
+                                                    <rect key="frame" x="0.0" y="477" width="375" height="23"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.31338028169014087" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <color key="textColor" red="0.91155278497409331" green="0.91155278497409331" blue="0.91155278497409331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NDs-7t-gUj">
-                                                    <rect key="frame" x="0.0" y="59" width="375" height="429"/>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="NDs-7t-gUj" firstAttribute="top" secondItem="ZRh-wa-KiR" secondAttribute="bottom" constant="8" id="1pU-hE-P1l"/>
-                                                <constraint firstAttribute="trailing" secondItem="NDs-7t-gUj" secondAttribute="trailing" id="1s9-n4-wM3"/>
-                                                <constraint firstItem="ZRh-wa-KiR" firstAttribute="leading" secondItem="IrH-te-lQR" secondAttribute="leadingMargin" id="Slo-Ee-68q"/>
-                                                <constraint firstItem="NDs-7t-gUj" firstAttribute="leading" secondItem="IrH-te-lQR" secondAttribute="leading" id="Uxh-si-Xw6"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="ZRh-wa-KiR" secondAttribute="trailing" id="Yft-ze-eSO"/>
-                                                <constraint firstAttribute="bottom" secondItem="NDs-7t-gUj" secondAttribute="bottom" constant="12" id="a5p-LC-9X5"/>
-                                                <constraint firstItem="ZRh-wa-KiR" firstAttribute="top" secondItem="IrH-te-lQR" secondAttribute="topMargin" id="x3E-gX-HQr"/>
+                                                <constraint firstItem="NDs-7t-gUj" firstAttribute="leading" secondItem="IrH-te-lQR" secondAttribute="leading" id="2RH-l2-UJ6"/>
+                                                <constraint firstAttribute="bottom" secondItem="ZRh-wa-KiR" secondAttribute="bottom" id="FUo-N3-D2v"/>
+                                                <constraint firstAttribute="trailing" secondItem="NDs-7t-gUj" secondAttribute="trailing" id="TYP-iL-lxt"/>
+                                                <constraint firstItem="ZRh-wa-KiR" firstAttribute="leading" secondItem="IrH-te-lQR" secondAttribute="leading" id="ay9-7c-7hg"/>
+                                                <constraint firstItem="NDs-7t-gUj" firstAttribute="top" secondItem="IrH-te-lQR" secondAttribute="top" id="m04-GJ-yxE"/>
+                                                <constraint firstAttribute="bottom" secondItem="NDs-7t-gUj" secondAttribute="bottom" id="o1w-r3-9Ss"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZRh-wa-KiR" secondAttribute="trailing" id="wjz-QC-qyA"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>

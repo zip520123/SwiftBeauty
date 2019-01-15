@@ -97,8 +97,5 @@ extension RootCoordinator: PhotoBrowserViewControllerDelegate {
 // MARK: - LightboxController Delegate
 extension RootCoordinator: LightboxControllerDismissalDelegate {
     func lightboxControllerWillDismiss(_ controller: LightboxController) {
-        
     }
-    
 }
-

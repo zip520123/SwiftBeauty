@@ -28,7 +28,7 @@ class ZoomablePhotoBrowser: LightboxController {
             imageView.kf.setImage(with: URL,
                                   options: [.transition(.fade(0.2)),
                                             .cacheOriginalImage,
-                ], completionHandler : { image, _, _, _ in
+                ], completionHandler: { image, _, _, _ in
                     completion?(image)
             })
         }
@@ -38,7 +38,6 @@ class ZoomablePhotoBrowser: LightboxController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
 class CustomPresentAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
