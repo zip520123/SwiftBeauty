@@ -14,7 +14,6 @@ final class TimLiaoFetcher: SourceFetchable {
     private static let cfEncoding = CFStringEncodings.big5
     private static let nsEncoding = CFStringConvertEncodingToNSStringEncoding(CFStringEncoding(cfEncoding.rawValue))
     private static let encoding = String.Encoding(rawValue: nsEncoding)
-
     // MARK: - SourceFetchable
 
     static var sourceName: String {
@@ -23,7 +22,7 @@ final class TimLiaoFetcher: SourceFetchable {
 
     func fetchPosts(at page: UInt, completionHandler: @escaping (FetchResult<[Post]>) -> Void) {
         let path = "http://www.timliao.com/bbs/forumdisplay.php?fid=18&filter=0&orderby=dateline&page=\(page)"
-        Alamofire.request(path).validate().responseHTMLDocument(encoding: TimLiaoFetcher.encoding) { response in
+        Alamofire.request(path).validate().responseHTMLDocument(encoding: nil) { response in
             guard case let .success(document) = response.result else {
                 let result: FetchResult<[Post]> = .failure(response.result.error! as! CustomError)
                 completionHandler(result)

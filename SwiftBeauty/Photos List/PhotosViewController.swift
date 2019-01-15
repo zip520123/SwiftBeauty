@@ -9,7 +9,6 @@
 import UIKit
 import CHTCollectionViewWaterfallLayout
 final class PhotosViewController: UIViewController {
-    
     // MARK: - Public Properties
     var viewModel: PhotosViewModel!
     // MARK: - Private Properties
