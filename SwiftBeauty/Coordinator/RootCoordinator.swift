@@ -69,31 +69,13 @@ extension RootCoordinator: PhotosViewModelDelegate {
         return viewController
     }
     func viewModel(_ viewModel: PhotosViewModel, didSelect index: Int, for data: [URL]) {
-//        let vc = createPhotoBrowserViewController()
-//        navigation.present(vc, animated: true) {
-//            vc.load(data, scrollTo: index)
-//        }
+
         let controller = ZoomablePhotoBrowser(images: data, startIndex: index)
         controller.dismissalDelegate = self
         navigation.present(controller, animated: true, completion: nil)
     }
 }
-// MARK: - Photo Browser Related Methods
-extension RootCoordinator: PhotoBrowserViewControllerDelegate {
-    private func createPhotoBrowserViewController() -> PhotoBrowserViewController {
-        let typeName = "\(PhotoBrowserViewController.self)"
-        let storyboard = UIStoryboard(name: typeName, bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: typeName) as! PhotoBrowserViewController
-        viewController.delegate = self
-        return viewController
-    }
 
-    func photoBrowserViewController(_ viewController: PhotoBrowserViewController, closeAt index: Int) {
-        let vc = navigation.topViewController as! PhotosViewController
-        vc.scrollToData(at: index, animated: false)
-        navigation.dismiss(animated: true, completion: nil)
-    }
-}
 // MARK: - LightboxController Delegate
 extension RootCoordinator: LightboxControllerDismissalDelegate {
     func lightboxControllerWillDismiss(_ controller: LightboxController) {

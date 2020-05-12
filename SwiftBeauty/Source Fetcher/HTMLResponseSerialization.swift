@@ -10,49 +10,31 @@ import Foundation
 import Alamofire
 import SwiftSoup
 
-extension DataRequest {
-    static func htmlResponseSerializer(encoding: String.Encoding?) -> DataResponseSerializer<Document> {
-        return DataResponseSerializer { _, response, data, error in
-            // Pass through any underlying URLSession error to the .network case.
-            guard error == nil else { return .failure(CustomError.network(error: error!)) }
+struct HTMLResponseSerializer: ResponseSerializer {
+    typealias SerializedObject = Document
+    
+    public func serialize(request: URLRequest?, response: HTTPURLResponse?, data: Data?, error: Error?) throws -> Document {
+        
+        let string = try StringResponseSerializer().serialize(request: request, response: response, data: data, error: error)
 
-            // Use Alamofire's existing data serializer to extract the data, passing the error as nil, as it has
-            // already been handled.
-            let result = Request.serializeResponseString(encoding: encoding, response: response, data: data, error: nil)
-
-            guard case let .success(validData) = result else {
-                return .failure(CustomError.dataSerialization(error: result.error! as! AFError))
-            }
-
-            do {
-                let html: Document = try SwiftSoup.parse(validData)
-                return .success(html)
-            } catch {
-                return .failure(CustomError.parse(error: error))
-            }
-        }
+        return try SwiftSoup.parse(string)
+        
     }
+    
+}
 
-    @discardableResult
-    func responseHTMLDocument(
-        queue: DispatchQueue? = nil,
-        encoding: String.Encoding? = nil,
-        completionHandler: @escaping (DataResponse<Document>) -> Void) -> Self {
-        return response(
-            queue: queue,
-            responseSerializer: DataRequest.htmlResponseSerializer(encoding: encoding),
-            completionHandler: completionHandler
-        )
-    }
+struct HTMLResponseSerializerBig5: ResponseSerializer {
+    typealias SerializedObject = Document
+    private static let cfEncoding = CFStringEncodings.big5
+    private static let nsEncoding = CFStringConvertEncodingToNSStringEncoding(CFStringEncoding(cfEncoding.rawValue))
+    private static let encoding = String.Encoding(rawValue: nsEncoding)
+    
+    public func serialize(request: URLRequest?, response: HTTPURLResponse?, data: Data?, error: Error?) throws -> Document {
+        
+        let string = try StringResponseSerializer(encoding: HTMLResponseSerializerBig5.encoding).serialize(request: request, response: response, data: data, error: error)
 
-    @discardableResult
-    func responseHTMLDocument(
-        encoding: String.Encoding? = nil,
-        completionHandler: @escaping (DataResponse<Document>) -> Void) -> Self {
-        return response(
-            queue: nil,
-            responseSerializer: DataRequest.htmlResponseSerializer(encoding: encoding),
-            completionHandler: completionHandler
-        )
+        return try SwiftSoup.parse(string)
+        
     }
+    
 }

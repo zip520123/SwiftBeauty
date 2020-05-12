@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5210C6742121EFE200B57885 /* PhotoBrowserViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5210C6732121EFE200B57885 /* PhotoBrowserViewController.storyboard */; };
 		5210C679212483F300B57885 /* SourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5210C678212483F300B57885 /* SourcesViewController.swift */; };
 		5210C67B2124840200B57885 /* SourcesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5210C67A2124840200B57885 /* SourcesViewController.storyboard */; };
 		52275107211413D60097F03F /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52275106211413D60097F03F /* CustomError.swift */; };
@@ -15,7 +14,6 @@
 		5227510B211437590097F03F /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5227510A211437590097F03F /* DataModel.swift */; };
 		526130172119FE74009B2023 /* SourceFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526130162119FE74009B2023 /* SourceFetchable.swift */; };
 		5261301A2119FF30009B2023 /* TimLiaoFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526130192119FF30009B2023 /* TimLiaoFetcher.swift */; };
-		5282DF862121EBBC00931E17 /* PhotoBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282DF852121EBBC00931E17 /* PhotoBrowserViewController.swift */; };
 		529A80A62120057B00DF150F /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529A80A52120057B00DF150F /* CoordinatorProtocol.swift */; };
 		529A80A82120100600DF150F /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529A80A72120100600DF150F /* RootCoordinator.swift */; };
 		529A80AB21201B1F00DF150F /* PhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529A80AA21201B1F00DF150F /* PhotosViewModel.swift */; };
@@ -40,6 +38,8 @@
 			isa = PBXBuildRule;
 			compilerSpec = com.apple.compilers.proxy.script;
 			fileType = pattern.proxy;
+			inputFiles = (
+			);
 			isEditable = 1;
 			outputFiles = (
 			);
@@ -59,7 +59,6 @@
 
 /* Begin PBXFileReference section */
 		285EDE17E2FA8C8AF769234B /* Pods-SwiftBeauty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBeauty.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftBeauty/Pods-SwiftBeauty.debug.xcconfig"; sourceTree = "<group>"; };
-		5210C6732121EFE200B57885 /* PhotoBrowserViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoBrowserViewController.storyboard; sourceTree = "<group>"; };
 		5210C678212483F300B57885 /* SourcesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesViewController.swift; sourceTree = "<group>"; };
 		5210C67A2124840200B57885 /* SourcesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SourcesViewController.storyboard; sourceTree = "<group>"; };
 		52275106211413D60097F03F /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
@@ -67,7 +66,6 @@
 		5227510A211437590097F03F /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		526130162119FE74009B2023 /* SourceFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceFetchable.swift; sourceTree = "<group>"; };
 		526130192119FF30009B2023 /* TimLiaoFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimLiaoFetcher.swift; sourceTree = "<group>"; };
-		5282DF852121EBBC00931E17 /* PhotoBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserViewController.swift; sourceTree = "<group>"; };
 		529A80A52120057B00DF150F /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		529A80A72120100600DF150F /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		529A80AA21201B1F00DF150F /* PhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewModel.swift; sourceTree = "<group>"; };
@@ -147,8 +145,6 @@
 		5282DF842121EB7300931E17 /* Photo Browser */ = {
 			isa = PBXGroup;
 			children = (
-				5210C6732121EFE200B57885 /* PhotoBrowserViewController.storyboard */,
-				5282DF852121EBBC00931E17 /* PhotoBrowserViewController.swift */,
 				EFE45EF821E313BF00C87082 /* ZoomablePhotoBrowser.swift */,
 			);
 			path = "Photo Browser";
@@ -322,7 +318,6 @@
 			files = (
 				52FF673D2112132000C6B800 /* Assets.xcassets in Resources */,
 				52FF67402112132000C6B800 /* LaunchScreen.storyboard in Resources */,
-				5210C6742121EFE200B57885 /* PhotoBrowserViewController.storyboard in Resources */,
 				529A80AF2120205700DF150F /* PhotosViewController.storyboard in Resources */,
 				52FF673B2112131F00C6B800 /* PostsViewController.storyboard in Resources */,
 				5210C67B2124840200B57885 /* SourcesViewController.storyboard in Resources */,
@@ -358,31 +353,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftBeauty/Pods-SwiftBeauty-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.framework",
-				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
-				"${BUILT_PRODUCTS_DIR}/EEZoomableImageView/EEZoomableImageView.framework",
-				"${BUILT_PRODUCTS_DIR}/Imaginary/Imaginary.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/Lightbox/Lightbox.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftBeauty/Pods-SwiftBeauty-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHTCollectionViewWaterfallLayout.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EEZoomableImageView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Imaginary.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lightbox.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftBeauty/Pods-SwiftBeauty-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftBeauty/Pods-SwiftBeauty-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftBeauty/Pods-SwiftBeauty-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BC7559747C41AA71B8F772CD /* [CP] Check Pods Manifest.lock */ = {
@@ -417,7 +397,6 @@
 				5227510B211437590097F03F /* DataModel.swift in Sources */,
 				52275109211415410097F03F /* HTMLResponseSerialization.swift in Sources */,
 				52DBAE4C2127F32E0061DCC4 /* JKForumFetcher.swift in Sources */,
-				5282DF862121EBBC00931E17 /* PhotoBrowserViewController.swift in Sources */,
 				529A80B12120866200DF150F /* PhotoCell.swift in Sources */,
 				529A80AD21201FAB00DF150F /* PhotosViewController.swift in Sources */,
 				529A80AB21201B1F00DF150F /* PhotosViewModel.swift in Sources */,
@@ -588,6 +567,7 @@
 			baseConfigurationReference = 285EDE17E2FA8C8AF769234B /* Pods-SwiftBeauty.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = N2M8C53W8L;
@@ -599,7 +579,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zip520123.SwiftBeauty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -610,6 +591,7 @@
 			baseConfigurationReference = 75ABDFBC04CAD7AC341DEAFB /* Pods-SwiftBeauty.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = N2M8C53W8L;
@@ -621,7 +603,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zip520123.SwiftBeauty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

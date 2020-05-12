@@ -64,41 +64,43 @@ class JKForumFetcher {
 
     func fetchPosts(with forumID: String, at page: UInt, completionHandler: @escaping (FetchResult<[Post]>) -> Void) {
         let path = "https://www.jkforum.net/forum.php?mod=forumdisplay&fid=\(forumID)&mobile=yes&page=\(page)"
-        Alamofire.request(path).validate().responseHTMLDocument { response in
-            guard case let .success(document) = response.result else {
-                let result: FetchResult<[Post]> = .failure(response.result.error! as! CustomError)
+        AF.request(path).validate().response(responseSerializer: HTMLResponseSerializer()) { (response) in
+            guard let doc = response.value else {
+                let result: FetchResult<[Post]> = .failure(CustomError.parse(error: response.error!))
                 completionHandler(result)
                 return
             }
-
             do {
-                let posts: [Post] = try self.parse(document)
+                let posts: [Post] = try self.parse(doc)
                 let result: FetchResult<[Post]> = (posts.isEmpty ? .failure(.emptyData) : .success(posts))
                 completionHandler(result)
             } catch {
                 let result: FetchResult<[Post]> = .failure(.parse(error: error))
                 completionHandler(result)
             }
+   
         }
     }
 
     func fetchPhotos(at url: URL, completionHandler: @escaping (FetchResult<[URL]>) -> Void) {
-        Alamofire.request(url).validate().responseHTMLDocument { response in
-            guard case let .success(document) = response.result else {
-                let result: FetchResult<[URL]> = .failure(response.result.error! as! CustomError)
+        AF.request(url).validate().response(responseSerializer: HTMLResponseSerializer()) { (response) in
+            guard let doc = response.value else {
+                let result: FetchResult<[URL]> = .failure(CustomError.parse(error: response.error!))
                 completionHandler(result)
                 return
             }
-
             do {
-                let urls: [URL] = try self.parse(document)
+                let urls: [URL] = try self.parse(doc)
                 let result: FetchResult<[URL]> = (urls.isEmpty ? .failure(.emptyData) : .success(urls))
                 completionHandler(result)
             } catch {
                 let result: FetchResult<[URL]> = .failure(.parse(error: error))
                 completionHandler(result)
             }
+            
+            
         }
+
     }
 
     // MARK: - Private Methods
@@ -114,8 +116,8 @@ class JKForumFetcher {
                 else {
                     return nil
             }
-            guard let t = try? title!.text(),
-                let src = try? image!.attr("src")
+            guard let t = try? title.text(),
+                let src = try? image.attr("src")
                 else {
                     return nil
             }

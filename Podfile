@@ -6,7 +6,6 @@ target 'SwiftBeauty' do
   pod 'Alamofire'
   pod 'SwiftSoup'
   pod 'Kingfisher'
-  pod 'EEZoomableImageView'
   pod 'SwiftLint', '~> 0.27.0'
   pod 'CHTCollectionViewWaterfallLayout'
   pod 'Lightbox'
