@@ -64,7 +64,12 @@ class JKForumFetcher {
 
     func fetchPosts(with forumID: String, at page: UInt, completionHandler: @escaping (FetchResult<[Post]>) -> Void) {
         let path = "https://www.jkforum.net/forum.php?mod=forumdisplay&fid=\(forumID)&mobile=yes&page=\(page)"
-        AF.request(path).validate().response(responseSerializer: HTMLResponseSerializer()) { (response) in
+
+        let headers: HTTPHeaders = [
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
+        ]
+        
+        AF.request(path, headers: headers ).validate().response(responseSerializer: HTMLResponseSerializer()) { (response) in
             guard let doc = response.value else {
                 let result: FetchResult<[Post]> = .failure(CustomError.parse(error: response.error!))
                 completionHandler(result)
@@ -106,23 +111,24 @@ class JKForumFetcher {
     // MARK: - Private Methods
 
     private func parse(_ document: Document) throws -> [Post] {
-        let elements = try document.select("ul#alist a")
+        let elements = try document.select("ul#waterfall a")
         let baseURL = URL(string: "https://www.jkforum.net/")!
 
         let posts = elements.array().compactMap { e -> Post? in
             guard let href = try? e.attr("href"),
-                let image = try? e.select("img").first(),
-                let title = try? e.select("h1").first()
+                let t = try? e.attr("title"),
+                let style = try? e.attr("style")
                 else {
                     return nil
             }
-            guard let t = try? title.text(),
-                let src = try? image.attr("src")
-                else {
-                    return nil
-            }
+            
+            let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
+            let matches = detector.matches(in: style, options: [], range: NSRange(location: 0, length: style.utf16.count))
+            guard let firstMatch = matches.first, let src = firstMatch.url else { return nil }
+        
+            
             let post = Post(title: t,
-                            coverURL: URL(string: "\(src)", relativeTo: baseURL)!,
+                            coverURL: src,
                             url: URL(string: "\(href)", relativeTo: baseURL)!)
             return post
         }
